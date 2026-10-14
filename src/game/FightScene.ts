@@ -212,7 +212,7 @@ export class FightScene extends Phaser.Scene {
     }
     // Fighter name and shield below feet, with contrasting shadow.
     g.fillStyle(0x080d20, .75); g.fillRoundedRect(x - 29, y + 9, 58, 16, 5);
-    g.fillStyle(palette.color, 1); g.fillRect(x - 27, y + 11, 54 * clamp(f.shield / 100, 0, 1), 3);
+    g.fillStyle(palette.color, 1); g.fillRect(x - 27, y + 11, 54 * Math.max(0, Math.min(1, f.shield / 100)), 3);
   }
 
   private drawParty(g: Phaser.GameObjects.Graphics): void {
