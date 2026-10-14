@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#090d20" />
+  <meta name="description" content="RIFT CLASH — an original anime-inspired browser platform fighter. Battle with cybernetics, magic and martial arts." />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <title>RIFT CLASH — Alpha 0.1</title>
+</head>
+<body>
+  <div id="app">
+    <main id="game-shell" aria-label="RIFT CLASH game">
+      <div id="game"></div>
+      <div id="game-hud" class="hidden" aria-live="off">
+        <div class="fighter-hud blue-hud"><div class="hud-name" id="p-name">KAITO</div><div class="damage-line"><strong id="p-damage">0%</strong><span id="p-stocks" aria-label="Player stocks">● ● ●</span></div><div class="shield-meter"><span id="p-shield"></span></div></div>
+        <div class="match-clock"><span id="hud-mode">COMPETITIVE</span><strong id="timer">6:00</strong><button class="small-button" id="pause-button" type="button" aria-label="Pause game">Ⅱ</button></div>
+        <div class="fighter-hud pink-hud"><div class="hud-name" id="cpu-name">NYRA · CPU</div><div class="damage-line"><strong id="cpu-damage">0%</strong><span id="cpu-stocks" aria-label="CPU stocks">● ● ●</span></div><div class="shield-meter"><span id="cpu-shield"></span></div></div>
+      </div>
+      <div id="toast" role="status" aria-live="polite"></div>
+      <div id="touch-controls" class="hidden" aria-label="Touch controls">
+        <div class="joystick" id="joystick" aria-label="Movement joystick" role="group"><div class="joystick-base"><div id="joystick-knob"></div></div><span>MOVE</span></div>
+        <div class="touch-actions">
+          <button type="button" data-control="jump" class="touch-button jump">JUMP</button>
+          <button type="button" data-control="attack" class="touch-button attack">HIT</button>
+          <button type="button" data-control="special" class="touch-button special">SPECIAL</button>
+          <button type="button" data-control="shield" class="touch-button shield">SHIELD</button>
+        </div>
+      </div>
+      <section id="home" class="screen home-screen">
+        <div class="eyebrow">THE FRACTURE BEGINS · ALPHA 0.1</div>
+        <h1>RIFT <em>CLASH</em></h1>
+        <p class="tagline">TWO WORLDS COLLIDE. ONLY ONE FIGHTER REMAINS.</p>
+        <div class="menu-actions">
+          <button type="button" class="primary" data-mode="competitive">⚔ &nbsp; COMPETITIVE</button>
+          <button type="button" class="primary purple" data-mode="party">✦ &nbsp; PARTY BRAWL</button>
+          <button type="button" class="secondary" data-mode="training">◎ &nbsp; TRAINING</button>
+        </div>
+        <p class="hint">PC: A / D move · W jump · S fast-fall · J attack · K special · L shield · Esc pause<br/>Mobile: landscape recommended · joystick + action buttons</p>
+      </section>
+      <section id="select" class="screen hidden" aria-label="Character selection">
+        <div class="section-label">CHOOSE YOUR FIGHTER</div>
+        <h2>ENTER THE <em>RIFT</em></h2>
+        <div class="fighter-select">
+          <button type="button" class="fighter-card active" data-fighter="kaito"><span class="fighter-art blue-art" aria-hidden="true"><span>⚡</span></span><strong>KAITO</strong><small>THE THUNDER FIST</small><span class="archetype">RUSHDOWN · SPEED</span></button>
+          <button type="button" class="fighter-card" data-fighter="nyra"><span class="fighter-art pink-art" aria-hidden="true"><span>✦</span></span><strong>NYRA</strong><small>THE VIOLET FLAME</small><span class="archetype">ZONER · MAGIC</span></button>
+        </div>
+        <p class="opponent-note" id="match-description">3-stock versus CPU · no items</p>
+        <div class="horizontal-actions"><button type="button" class="secondary" id="select-back">← BACK</button><button type="button" class="primary" id="start-match">START FIGHT →</button></div>
+      </section>
+      <section id="end-screen" class="screen hidden" aria-label="Match results"><div class="eyebrow">MATCH COMPLETE</div><h2 id="result-title">VICTORY!</h2><p id="result-message">The Rift belongs to you.</p><div class="horizontal-actions"><button type="button" class="primary" id="rematch">REMATCH</button><button type="button" class="secondary" id="end-menu">MAIN MENU</button></div></section>
+      <section id="pause-screen" class="screen hidden" aria-label="Game paused"><div class="eyebrow">RIFT CLASH</div><h2>PAUSED</h2><div class="menu-actions"><button type="button" class="primary" id="resume">RESUME</button><button type="button" class="secondary" id="pause-menu">MAIN MENU</button></div></section>
+    </main>
+    <div id="rotate-tip">↻ &nbsp; Rotate your device to landscape for the best fighting experience.</div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
